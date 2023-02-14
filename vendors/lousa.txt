@@ -1,0 +1,33 @@
+TESTES DE SERVIÇOS / API / WEB SERVIÇOS
+
+- Objetivo: Testar a comunicação e processamento entre API's / SERVIÇOS
+
+
+Formatos de Arquivo de Dados em formato de texto
+
+CSV(Comma Separeted Values - Valores Separados por Virgula):
+nome, telefone
+Debora, 96964299
+
+
+Posicional:
+nome               telefone
+Debora             996964299
+
+
+XML(eXtensible Markup Language - Linguagem de Marcação Flexível):
+<clientes>
+    <cliente>
+        <nome>Débora</nome>
+        <telefone>996964299</telefone>
+    </cliente>
+</clientes>
+
+
+JSON(JavaScript Object Notation)
+[
+    {
+        "nome": "Débora",
+        "telefone": "96964299"
+    }
+]
