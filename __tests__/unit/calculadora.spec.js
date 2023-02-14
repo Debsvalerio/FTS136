@@ -6,7 +6,7 @@
 const calculadora = require("../../src/calculadora");
 
 // Apontamento para o arquivo de massa de teste
-const arquivoCsv = require("../../vendors/csv/massaDivisao.csv");
+const arquivoJson = require("../../vendors/csv/massaDivisao");
 
 //Funções de Teste de Unidade
 test("Somar 5 + 7", () => {
@@ -107,21 +107,7 @@ test("Dividir 27 / 9", () => {
             expect(resultadoAtual).toBe(resultadoEsperado);
 })
 
-test("Dividir 50 / 5", () => {
-    // 1 - Configura
-            const num1 = 50;
-            const num2 = 5;
-            resultadoEsperado = 10;
-
-    // 2 - Executa
-            const dividirDoisNumeros = calculadora.dividirDoisNumeros;
-            const resultadoAtual = dividirDoisNumeros(num1, num2);
-
-    // 3 - Validada
-            expect(resultadoAtual).toBe(resultadoEsperado);
-})
-
-test.each(arquivoCsv.array.map(elemento => [
+test.each(arquivoJson.array.map(elemento => [
         elemento.num1,
         elemento.num2,
         elemento.resultadoEsperado
