@@ -1,7 +1,3 @@
-TESTES DE SERVIÇOS / API / WEB SERVIÇOS
-
-- Objetivo: Testar a comunicação e processamento entre API's / SERVIÇOS
-
 
 Formatos de Arquivo de Dados em formato de texto
 
@@ -35,3 +31,16 @@ JSON(JavaScript Object Notation)
 BLOCO DE ANOTAÇÕES 
 
 TDD - Test Driven Development
+
+TESTES DE SERVIÇOS / API / WEB SERVIÇOS
+
+- Objetivo: Testar a comunicação e processamento entre API's / SERVIÇOS
+
+O que é um serviço? É um recurso de comunicação entre sistemas e aplicativos
+
+As 4 operações básicas de um serviço:
+    API         BD / multiplicarDoisNumeros
+    - POST   = (C) Create   = Incluir
+    - GET    = (R) Reach    = Consultar
+    - PUT    = (U) Update   = Alterar
+    - DELETE = (D) Delete   = Excluir
