@@ -12,9 +12,23 @@ describe("PestStore Swagger - Pet", () => {
     const request = supertest(baseUrl);
 
     // POST - Teste de incluir animal
-    It("Post Pet", () => {
+    it("Post Pet", () => {
         // Configura
-        
+        const jsonFile = require("../../vendors/json/pet1.json") // Apontamento para o arquivo com os dados do animal.
+        //Realizar a requisição e receber a resposta
+
+        // Executa
+        return request // chama para a requisição
+        .post("/pet")  // endpoint / função para inclusão do animal
+        .send(jsonFile)// envia os dados no corpo da requisição
+
+        //Valida
+        .then((response) => {
+            assert.equal(response.statusCode, 200);
+            assert.equal(response.body.id, petId);
+            assert.equal(response.body.name, "Katrina");
+            assert.equal(response.body.status, "available");
+        });
 
     });
 });
