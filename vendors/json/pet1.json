@@ -1,0 +1,18 @@
+{
+    "id": 2712871,
+    "category": {
+      "id": 1,
+      "name": "cat"
+    },
+    "name": "Katrina",
+    "photoUrls": [
+      ""
+    ],
+    "tags": [
+      {
+        "id": 3,
+        "name": "vaccinated"
+      }
+    ],
+    "status": "available"
+  }
