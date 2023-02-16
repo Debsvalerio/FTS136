@@ -33,13 +33,28 @@ describe("PestStore Swagger - Pet", () => {
 
     // Consulta o animal pelo seu petId
     it("Get Pet", () => {
-        return request
+        return request          // chama para a requisição
         .get("/pet/" + petId)   // Consultar o animal pelo Id
-        .then((response) => {
+        .then((response) => {   // validar a resposta
             assert.equal(response.statusCode, 200);
             assert.equal(response.body.id, petId);
             assert.equal(response.body.name, "Katrina");
             assert.equal(response.body.status, "available");
         });
     });
+
+    //Alterar dados do animal
+    it("Put Pet", () => {
+        const jsonFile = require("../../vendors/json/pet2.json") // Apontamento para o arquivo com os dados alterado.
+
+        return request 
+        .put("/pet")  
+        .send(jsonFile)
+        .then((response) => {
+            assert.equal(response.statusCode, 200);
+            assert.equal(response.body.id, petId);
+            assert.equal(response.body.name, "Katrina");
+            assert.equal(response.body.tags[1], "available");
+        });
+    })
 });
