@@ -29,6 +29,17 @@ describe("PestStore Swagger - Pet", () => {
             assert.equal(response.body.name, "Katrina");
             assert.equal(response.body.status, "available");
         });
+    });
 
+    // Consulta o animal pelo seu petId
+    it("Get Pet", () => {
+        return request
+        .get("/pet/" + petId)   // Consultar o animal pelo Id
+        .then((response) => {
+            assert.equal(response.statusCode, 200);
+            assert.equal(response.body.id, petId);
+            assert.equal(response.body.name, "Katrina");
+            assert.equal(response.body.status, "available");
+        });
     });
 });
