@@ -19,8 +19,8 @@ describe("PestStore Swagger - Pet", () => {
 
         // Executa
         return request // chama para a requisição
-        .post("/pet")  // endpoint / função para inclusão do animal
-        .send(jsonFile)// envia os dados no corpo da requisição
+            .post("/pet")  // endpoint / função para inclusão do animal
+            .send(jsonFile)// envia os dados no corpo da requisição
 
         //Valida
         .then((response) => {
@@ -34,8 +34,8 @@ describe("PestStore Swagger - Pet", () => {
     // Consulta o animal pelo seu petId
     it("Get Pet", () => {
         return request          // chama para a requisição
-        .get("/pet/" + petId)   // Consultar o animal pelo Id
-        .then((response) => {   // validar a resposta
+             .get("/pet/" + petId)   // Consultar o animal pelo Id
+             .then((response) => {   // validar a resposta
             assert.equal(response.statusCode, 200);
             assert.equal(response.body.id, petId);
             assert.equal(response.body.name, "Katrina");
@@ -48,13 +48,24 @@ describe("PestStore Swagger - Pet", () => {
         const jsonFile = require("../../vendors/json/pet2.json") // Apontamento para o arquivo com os dados alterado.
 
         return request 
-        .put("/pet")  
-        .send(jsonFile)
-        .then((response) => {
+             .put("/pet")  
+             .send(jsonFile)
+             .then((response) => {
             assert.equal(response.statusCode, 200);
             assert.equal(response.body.id, petId);
             assert.equal(response.body.name, "Katrina");
-            assert.equal(response.body.tags[1], "available");
+            assert.equal(response.body.tags[1].id, 4);
+            assert.equal(response.body.tags[1].name, "castrated");
+            assert.equal(response.body.status, "solded");
         });
-    })
+    });
+
+    it("Delete Pet", () => {
+        return request
+            .delete("/pet/" + petId)
+            .then((response) => {
+                assert.equal(response.statusCode, 200);
+            });
+        
+    });
 });
