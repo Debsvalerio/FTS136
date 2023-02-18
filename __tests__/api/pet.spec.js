@@ -68,4 +68,27 @@ describe("PestStore Swagger - Pet", () => {
             });
         
     });
+
+    //Funçao de carga de animais
+    pets.array.forEach(({nomePet, idPet, nomeCategoria, idCategoria}) => {
+       
+        it("Setup Swagger - Add Pets", () => {
+            const pets = require("../../vendors/json/petn");
+            pet.id = idPet
+            pet.name = nomePet
+            pet.category.id = idCategoria
+            pet.category.name = nomeCategoria
+            pet.tags[0].id = 3
+            pet.tags[0].name = "vaccinated"
+            pet.status = "done"
+
+            return request
+            .post("/pet")
+            .send()
+    
+        });
+    });
+
+
+
 });
