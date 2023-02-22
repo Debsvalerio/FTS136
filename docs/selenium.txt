@@ -1,0 +1,23 @@
+
+TESTES WEB
+    - Teste de Regressão = testar tudo novamente à cada mudança.
+    --> Ferramenta Paga: Mercury
+    --> Ferramenta Open Source: Selenium (Se)
+
+Diferenciais:
+    - Multi Sistema Operacional: windows, Linux, Mac...
+    - Multi Browser: Chrome, Firefox, Opera, Safari, Edge, etc.
+    - Multi Linguagem
+            = Selenium WebDriver
+
+    PoC = Proof of Concept (Prova de Conceito)
+
+
+2007 - Surgi no Japão - Funcionaria TW --> Selenium IDE
+    - Ferramenta do tipo Captura / Gravador
+    - Pré-Conceitos:
+        - escreve código demais
+        - estilo muito simples de código: não gera em Gherkin/BDD, em Page Objects
+        - dificil de manter / modificar o código
+        - emburrece - você não aprende a automatizar se não for logo programando
+É uma extensão para navegadores como Firefox, Chrome, Edge
