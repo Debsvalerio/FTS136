@@ -3,18 +3,19 @@ const { Builder, By, Key, until } = require('selenium-webdriver')
 const assert = require('assert')
 
 describe('Comprar_Passagem', function() {
-  this.timeout(30000)
-  let driver
-  let vars
+  this.timeout(30000)     // espera implicita 
+  let driver              // objeto do Selenium WebDriver
+  let vars                // lista para guardar variáveis e informações
+
   beforeEach(async function() {
-    driver = await new Builder().forBrowser('chrome').build()
+    driver = await new Builder().forBrowser('chrome').build() // Instancia objeto Selenium WebDriver para controlar o Chrome Driver
     vars = {}
   })
   afterEach(async function() {
-    await driver.quit();
+    await driver.quit();  // Destroi o objeto do Selenium WebDriver
   })
   it('Comprar_Passagem', async function() {
-    await driver.get("https://www.blazedemo.com/")
+    await driver.get("https://www.blazedemo.com/")  // abre o site alvo - SUT: Software Under Test
     await driver.manage().window().setRect({ width: 1936, height: 1056 })
     await driver.findElement(By.name("fromPort")).click()
     {
@@ -39,9 +40,8 @@ describe('Comprar_Passagem', function() {
       const dropdown = await driver.findElement(By.id("cardType"))
       await dropdown.findElement(By.xpath("//option[. = 'American Express']")).click()
     }
-    await driver.findElement(By.css(".btn-primary")).click()
-    assert(await driver.findElement(By.css("h1")).getText() == "Thank you for your purchase today!")
-    assert(await driver.findElement(By.css("tr:nth-child(3) > td:nth-child(2)")).getText() == "555 USD")
-    assert(await driver.findElement(By.css("h1")).getText() == "Thank you for your purchase today!")
+    await driver.findElement(By.css(".btn-primary")).click() // Clica no botão comprar
+    assert(await driver.findElement(By.css("h1")).getText() == "Thank you for your purchase today!") // Valida a mensagem de agradecimento
+    assert(await driver.findElement(By.css("tr:nth-child(3) > td:nth-child(2)")).getText() == "555 USD")  // Valida o preço da passagem
   })
 })
