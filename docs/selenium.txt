@@ -35,3 +35,5 @@ Gerenciamento de Driver
         1 - Download do driver desejado a partir do site do fornecedor e coloca em cada projeto
         2 - Download do driver desejado a partir do site do fornecedor e coloca em uma unica pasta compartilhada com todos os projetos
         3 - Pode adicionar o pacote WebDriverManager ao seu projeto (NAO RECOMENDÁVEL, NO MOMENTO, PARA JAVASCRIPT)
+
+        
