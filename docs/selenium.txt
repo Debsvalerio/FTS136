@@ -36,4 +36,10 @@ Gerenciamento de Driver
         2 - Download do driver desejado a partir do site do fornecedor e coloca em uma unica pasta compartilhada com todos os projetos
         3 - Pode adicionar o pacote WebDriverManager ao seu projeto (NAO RECOMENDÁVEL, NO MOMENTO, PARA JAVASCRIPT)
 
+BDD: Forma de organizaçao para melhorar a comunicaçao do time
+        - Foco na visão do comportamento PO
+        - Colaborativo - todo mundo da opinião
+        - Pode escreve os critérios de aceitação em Gherkin
+        - Pode ser usado como base para conectar a automação (Cucumber)
         
+Page Objects: Forma de organizaçao da automação de testes pensando em projetos com interface ricas e com separação de papeis
