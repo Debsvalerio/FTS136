@@ -16,4 +16,4 @@
     "include": [
       "features/step_definitions/*.ts"
     ]
-  }
+}
