@@ -1,12 +1,14 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const cucumber_1 = require("@cucumber/cucumber");
-const selenium_webdriver_1 = require("selenium-webdriver");
-require("chromedriver");
+const selenium_webdriver_1 = require("selenium-webdriver"); // Selenium
+require("chromedriver"); // ChromeDriver - tradutor do browser
 const chai_1 = require("chai");
 const HomePage = require("../../pages/HomePage");
+const chrome = require('selenium-webdriver/chrome');
 (0, cucumber_1.Before)(async function () {
-    this.driver = await new selenium_webdriver_1.Builder().forBrowser('chrome').build();
+    const options = new chrome.Options().headless();
+    this.driver = await new selenium_webdriver_1.Builder().forBrowser('chrome').setChromeOptions(options).build();
     this.driver.manage().setTimeouts({ implicit: 60000 });
     this.driver.manage().window().maximize();
     this.homePage = new HomePage(this.driver);
