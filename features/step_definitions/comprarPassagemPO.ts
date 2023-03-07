@@ -1,4 +1,4 @@
-import { Given, When, Then, Before } from "@cucumber/cucumber"
+import { Given, When, Then, Before, After } from "@cucumber/cucumber"
 import {Builder} from "selenium-webdriver"
 require("chromedriver")
 import { assert } from "chai"
@@ -8,24 +8,24 @@ Before(async function () {
     this.driver = await new Builder().forBrowser('chrome').build()
     this.driver.manage().setTimeouts({ implicit: 60000})
     this.driver.manage().window().maximize()
+
+    this.homePage = new HomePage(this.driver)
 })
 
-         Given('acesso o site BlazeDemo', function () {
-           // Write code here that turns the phrase above into concrete actions
-           return 'pending';
-         });
+After(async function () {
+  await this.driver.quit()
+})
 
-         When('seleciono origem como {string} e destino como {string}', function (string, string2) {
-           // Write code here that turns the phrase above into concrete actions
-           return 'pending';
-         });
+Given('acesso o site BlazeDemo', async function () {
+    await this.driver.get('https://www.blazedemo.com')
+ });
 
-         Then('exibe o titulo da guia como {string}', function (string) {
-           // Write code here that turns the phrase above into concrete actions
-           return 'pending';
-         });
+When('seleciono origem como {string} e destino como {string}', async function (origem, destino) {
+    await this.homePage.selecionarOrigemDestinoVoo(origem, destino)
+});
 
-         Then('exibe', function () {
-           // Write code here that turns the phrase above into concrete actions
-           return 'pending';
-         });
+Then('exibe o titulo da guia como {string}', async function (tituloEsperado) {
+    let tituloAtual = await this.homePage.getTitle()
+    assert.equal(tituloAtual, tituloEsperado)
+});
+
