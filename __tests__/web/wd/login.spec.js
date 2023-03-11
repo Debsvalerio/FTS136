@@ -2,7 +2,7 @@ const { Builder, By } = require('selenium-webdriver')
 require('chromedriver')
 const assert = require('assert')
 
-describe('Login', async function () {
+describe('Login', function () {
     let driver
 
     beforeEach(async function () {
