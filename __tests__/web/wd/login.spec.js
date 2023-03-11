@@ -23,8 +23,16 @@ describe('Login', async function () {
         
         //Validar pra ver se entrou realmente na pagina de login
         assert(await driver.findElement(By.css('div.panel-heading')).getText() == 'Login')
-
+        // Escreve no campo 'email'
         await driver.findElement(By.id('email')).sendKeys('test@teste.com.br')
+        // escreve no campo 'senha'
+        await driver.findElement(By.id('password').sendKeys('12345678'))
+        // clica no botão 'login'
+        await driver.findElement(By.css('button.btn.btn-primary')).click()
+        // valida o texto da guia
+        assert(await driver.getText() == 'Page Expired')
+        // valida o texto da pagina
+        assert(await driver.findElement(By.css('div.flex-center.position-ref.full-height')).getText() == '419 Page Expired')
        
     })
 })
